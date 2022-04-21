@@ -9,7 +9,8 @@ export class cardNFT extends LitElement{
     }
 
     static styles = css`
-        :host{
+        .carta{
+            position:relative;
             width: 300px;
             height: fit-content;
             color: black;
@@ -18,10 +19,11 @@ export class cardNFT extends LitElement{
             border: 0px;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             text-align: right;
+            padding-bottom: 1px;
         }
 
         .price {
-            width: 100%;
+            width: 300px;
             font-size: 1rem;
             position: absolute;
             bottom: -1;
@@ -92,7 +94,7 @@ export class cardNFT extends LitElement{
         .comprar {
             opacity: 0; /* Hide button */
             position: absolute;
-            width: 100%;
+            width: 300px;
             top: 30%;
             text-align: center;
         }
@@ -119,7 +121,7 @@ export class cardNFT extends LitElement{
             color: #fff;
         }
          
-        .card:hover .comprar{
+        .carta:hover .comprar{
             opacity: 1; /* On :hover of div show button */
             -webkit-transition:all 0.4s ease;
             -moz-transition:all 0.4s ease;
@@ -127,7 +129,7 @@ export class cardNFT extends LitElement{
             -ms-transition:all 0.4s ease;
         }
 
-        .card:hover .imagen{
+        .carta:hover .imagen{
             opacity: 0.4; /* On :hover of div show button */
             -webkit-transition:all 0.4s ease;
             -moz-transition:all 0.4s ease;
@@ -147,7 +149,7 @@ export class cardNFT extends LitElement{
 
     render(){
         return html`
-            <div class="card">
+            <div class="carta">
                 <img class="imagen" src=${this.img}></img>
                 <h4>${this.name}</h4>
                 <h5><a href="#">${this.autor}</a></h5>

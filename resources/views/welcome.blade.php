@@ -18,7 +18,9 @@
         <div id="login">
             <button id="login-btn" type="button" class="btn btn-light" onclick="web3setup();"><b id="text">METAMASK LOG IN</b></button>
             <p id="account" style="z-index: 2; margin: auto; background-color: white; padding: 15px; border-radius: 5px; font-weight: bold; display: none;"></p>
-            <nft-card autor="ArgDev" name="Mi primer NFT" img="img/unnamed.gif"></nft-card>
+            <div id="muestra">
+                <nft-card autor="ArgDev" name="Mi primer NFT" img="img/unnamed.gif"></nft-card>
+            </div>
         </div>
         <div class="area" >
             <ul class="circles">

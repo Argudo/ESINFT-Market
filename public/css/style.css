@@ -129,9 +129,20 @@ body{
     animation-duration: 11s;
 }
 
-nft-card{
+#card-home{
+    width: 100%;
+}
+
+#muestra{
     position: absolute;
-    margin: 300px 50px;
+    width: 100%;
+    top: 58%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+nft-card{
+    position: relative;
 }
 
 #login{
