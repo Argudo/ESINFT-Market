@@ -16,13 +16,16 @@
             <h1>ESI NFT MARKETPLACE</h1>
         </div>
         <div id="login">
-            <button id="login-btn" type="button" class="btn btn-light" onclick="web3setup();"><b id="text">METAMASK LOG IN</b></button>
-            <p id="account" style="z-index: 2; margin: auto; background-color: white; padding: 15px; border-radius: 5px; font-weight: bold; display: none;"></p>
-            <div id="muestra">
-                <nft-card autor="ArgDev" name="Mi primer NFT" img="img/unnamed.gif"></nft-card>
+            <button id="login-btn" type="button" class="btn btn-light" onclick="web3setup();"><b id="text">CONECTAR METAMASK</b></button>
+            <div id="enter-btn">
+                <form action="home" method="POST">
+                    <button id="post-btn" type="submit" class="comprar" name="account" style="width: 300px;height: 100%;"><b id="text">Entrar al mercado</b></button>
+                    {{csrf_field()}}
+                </form>
             </div>
+            <button id="account" class="btn btn-light" style="z-index: 2; margin: auto; padding: 15px; border-radius: 5px; font-weight: bold; display: none;" disabled></button>
         </div>
-        <div class="area" >
+        <div class="area">
             <ul class="circles">
                 <li></li>
                 <li></li>
