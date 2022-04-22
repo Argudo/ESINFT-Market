@@ -1,0 +1,116 @@
+body {
+    align-items: center;
+    background: #f4f4f8;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    font-family: Poppins, sans-serif;
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+   }
+    100% {
+        transform: translateX(calc(-250px * 7));
+   }
+}
+.slider {
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    height: fit-content;
+    margin:  0 250px 200px 200px;
+    border-radius: 25px;
+}
+.slider::before, .slider::after {
+    /*background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);*/
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+}
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+.slider::before {
+    left: 0;
+    top: 0;
+}
+.slider .slide-track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(350px * 14);
+    height: fit-content;
+}
+.slider .slide {
+    height: fit-content;
+    width: 350px;
+}
+
+
+
+#presentacion{
+    display: flex;
+    margin: auto;
+    width: 100%;
+    height: fit-content;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+}
+
+#presentacion img{
+    height: 400px;
+    width: 650px;
+    margin-right: 250px;
+    border-radius: 25px;
+}
+
+#presentacion > div{
+    margin:  auto 200px auto 200px;
+}
+
+
+#user-section{
+    width: 100%;
+    margin: 100px auto;
+}
+
+.user-card{
+    margin: auto;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    height: 125px;
+    border-radius: 25px;
+    background-color: white;
+    margin:  auto 250px auto 200px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    vertical-align: middle;
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0, #6a82fb);
+    color: white;
+}
+
+.user-card button{
+    border-radius: 15px;
+    width: 200px;
+    height: 50px;
+    margin: auto 20px;
+}
+
+.user-card h4{
+    margin: auto 20px;
+}
+
+
+/*
+body{
+    background: #4e54c8;  
+    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+    
+}
+*/
