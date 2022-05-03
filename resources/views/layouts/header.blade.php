@@ -25,7 +25,7 @@
                                 <a class="nav-link" href="./reserva.html">Mercado</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./salas.html">Perfil</a>
+                                <a class="nav-link" href="perfil">Perfil</a>
                             </li>
                         </ul>
                     </div>

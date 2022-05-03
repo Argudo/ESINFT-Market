@@ -16,6 +16,9 @@
     <section id="user-section">
         <div class="user-card">
             <h4><b>Hazte con el mejor arte digital en nuestro mercado</b></h4>
+            <?php 
+                echo $_SESSION['account'];
+                ?>
             <button class="btn btn-light">Entrar</button>
         </div>
     </section>
