@@ -19,7 +19,7 @@
             <button id="login-btn" type="button" class="btn btn-light" onclick="web3setup();"><b id="text">CONECTAR METAMASK</b></button>
             <div id="enter-btn">
                 <form action="home" method="POST">
-                    <button id="post-btn" type="submit" class="comprar" name="account" style="width: 300px;height: 100%;"><b id="text">Entrar al mercado</b></button>
+                    <button id="post-btn" type="submit" class="comprar" name="account" style="width: 300px;height: 100%;"><b id="text">Entrar mercado</b></button>
                     {{csrf_field()}}
                 </form>
             </div>
