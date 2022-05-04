@@ -26,7 +26,7 @@
                                 <a class="nav-link active" style="color: white;" aria-current="page" href="home">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="mercado">Mercado</a>
+                                <a class="nav-link" href="/mercado">Mercado</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="NFT">Crear&nbspNFT</a>
@@ -35,7 +35,7 @@
                                 <a class="nav-link" href="misNFTs">Mis&nbspNFTs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="perfil">Perfil</a>
+                                <a class="nav-link" href="/perfil">Perfil</a>
                             </li>
                         </ul>
                     </div>

@@ -15,13 +15,17 @@
     </div>
     <section id="user-section">
     <h2><b>Venta NFT</b></h2>
+    @foreach($nfts as $nft)
     <?php 
-               // $imagen = "img/NFTs/$nft->imagen";
-                //echo "<nft-card-mini autor='Yo' name='$nft->nombre' img=$imagen  comprar = 'vender'></nft-card-mini>";
+                
+                $imagen = "public/img/NFTs/$nft->imagen";
+                echo "<nft-card-mini autor='Yo' name='$nft->nombre' img=$imagen enlace='vender/$nft->id'></nft-card-mini>";
     ?>
    
     @endforeach
         
+
+    
     </section>
    
     <div style="height: 20px;"></div>
