@@ -26,7 +26,7 @@
                                 <a class="nav-link active" style="color: white;" aria-current="page" href="home">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./reserva.html">Mercado</a>
+                                <a class="nav-link" href="mercado">Mercado</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="NFT">Crear NFT</a>

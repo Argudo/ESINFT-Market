@@ -14,11 +14,10 @@
         <img src="img/banner.jpg" alt="">
     </div>
     <section id="user-section">
-    <h2><b>Mi baul de NFTs</b></h2>
-    @foreach($nfts as $nft)
+    <h2><b>Venta NFT</b></h2>
     <?php 
-                $imagen = "img/NFTs/$nft->imagen";
-                echo "<nft-card-mini autor='Yo' name='$nft->nombre' img=$imagen <comprar href= 'vender'>></nft-card-mini>";
+               // $imagen = "img/NFTs/$nft->imagen";
+                //echo "<nft-card-mini autor='Yo' name='$nft->nombre' img=$imagen  comprar = 'vender'></nft-card-mini>";
     ?>
    
     @endforeach

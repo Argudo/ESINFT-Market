@@ -3,6 +3,7 @@
     use App\Models\Users;
     use Illuminate\Support\Str;
     use App\Models\nft;
+    use App\Models\mercado;
     use DB;
 
     use Illuminate\Http\Request;
@@ -31,7 +32,7 @@
                 $user->save();
              }
           
-             return view("home",['id' => $_COOKIE["id"]]);
+             return view("home",['id' =>  $_SESSION['account']]);
         }
 
         public function perfil(){
@@ -80,9 +81,35 @@
             $user->save();
             return view("home",['id' =>  $_COOKIE["id"]]);
         }
-
+        //preguntar a kevin como sacar los datos de aqui
         public function mercado(){
-            $art = Articulo::create($request->only("titulo", "descripcion", "cuerpo"));
-            return redirect()->route("un_articulo", ["art" =>$art->id]);
+            $mercado=mercado::orderBy('id','desc')->paginate(2);
+        
+            return view("mercado")->with(["nfts" => $mercado]);
+        }
+
+        public function vender(Request $request){
+            return view("vender");
+        }
+
+        public function venta(Request $request){
+            $mercado= new mercado;
+            $mercado->id_nft = request->id_nft;
+        
+            return view("mercado")->with(["nfts" => $mercado]);
+        }
+
+        public function buscar(Request $request){
+            $nfts = mercado::where('nombre', 'LIKE', $request->nombre)->paginate(2);
+
+            return view('mercado', compact('nfts'));
+        }
+
+        static public function datosNFT($request){
+            $nft = nft::where('id', '=', $nfts->id_nft);
+
+            return $nft;
         }
     }
+
+
