@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Users extends Model
+class nft extends Model
 {
     use HasFactory;
-    protected $table = "usuarios";
+    protected $table = "nfts";
 
-    protected $fillable = ["idMeta", "nombre", "email", "saldo"];
+    protected $fillable = ["id_nft", "idMeta", "nombre", "imagen"];
 
     public $timestamps = false;
 }

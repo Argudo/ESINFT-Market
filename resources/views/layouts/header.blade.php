@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+    <?php
+        session_start()
+    ?>
+
     <head>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -19,10 +23,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul id="barra" style="gap: 1em;" class="navbar-nav ms-auto mb-2 mb-lg-0 nav nav-pills nav-justified">
                             <li class="nav-item">
-                                <a class="nav-link active" style="color: white;" aria-current="page" href="./index.html">Inicio</a>
+                                <a class="nav-link active" style="color: white;" aria-current="page" href="home">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./reserva.html">Mercado</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="NFT">Crear NFT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="misNFTs">Mis NFTs</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="perfil">Perfil</a>

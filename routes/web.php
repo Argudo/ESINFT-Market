@@ -20,16 +20,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/home', function () {
-    return view('home');
-});
 
 Route::post('/perfil',[UserController::class, 'perfil']);
 Route::get('/perfil',[UserController::class, 'perfil']);
 
 Route::post('/actualizar',[UserController::class, 'actualizar']);
 Route::post('/home',[UserController::class, 'añadirUser']);
+Route::get('/home',[UserController::class, 'home']);
+
+Route::get('/NFT',[UserController::class, 'NFT']);
+Route::post('/NFT',[UserController::class, 'NFT']);
+
+Route::post('/guardarNFT',[UserController::class, 'saveNFT']);
+
+Route::get('/misNFTs',[UserController::class, 'myNFTs']);
