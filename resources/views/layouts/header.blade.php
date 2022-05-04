@@ -29,10 +29,10 @@
                                 <a class="nav-link" href="mercado">Mercado</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="NFT">Crear NFT</a>
+                                <a class="nav-link" href="NFT">Crear&nbspNFT</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="misNFTs">Mis NFTs</a>
+                                <a class="nav-link" href="misNFTs">Mis&nbspNFTs</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="perfil">Perfil</a>
