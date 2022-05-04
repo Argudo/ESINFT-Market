@@ -88,8 +88,9 @@
             return view("mercado")->with(["nfts" => $mercado]);
         }
 
-        public function vender(Request $request){
-            return view("vender");
+        public function vender($id){
+            $nft = nft::where('id', '=', $id)->paginate(2); //preguntar a kevin lo que hace paginate
+            return view("vender")->with(["nfts" => $nft]);
         }
 
         public function venta(Request $request){

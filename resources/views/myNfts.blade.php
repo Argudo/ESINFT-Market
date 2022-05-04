@@ -18,7 +18,7 @@
     @foreach($nfts as $nft)
     <?php 
                 $imagen = "img/NFTs/$nft->imagen";
-                echo "<nft-card-mini autor='Yo' name='$nft->nombre' img=$imagen enlace='vender'></nft-card-mini>";
+                echo "<nft-card-mini autor='Yo' name='$nft->nombre' img=$imagen enlace='vender/$nft->id'></nft-card-mini>";
     ?>
    
     @endforeach

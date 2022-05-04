@@ -26,16 +26,16 @@
                                 <a class="nav-link active" style="color: white;" aria-current="page" href="home">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="mercado">Mercado</a>
+                                <a class="nav-link" href="/mercado">Mercado</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="NFT">Crear NFT</a>
+                                <a class="nav-link" href="/NFT">Crear NFT</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="misNFTs">Mis NFTs</a>
+                                <a class="nav-link" href="/misNFTs">Mis NFTs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="perfil">Perfil</a>
+                                <a class="nav-link" href="/perfil">Perfil</a>
                             </li>
                         </ul>
                     </div>
