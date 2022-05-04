@@ -5,7 +5,8 @@ export class cardNFT extends LitElement{
         name: {type: String},
         autor: {type: String},
         price: {type: String},
-        img: {}
+        img: {},
+        enlace: {type: String}
     }
 
     static styles = css`
@@ -144,7 +145,8 @@ export class cardNFT extends LitElement{
         this.name = "Nombre predeterminado";
         this.autor = "Autor Anonimo";
         this.price = "0.00";
-        this.img = ""
+        this.img = "";
+        this.enlace = "vender"
     }
 
     render(){
@@ -158,7 +160,7 @@ export class cardNFT extends LitElement{
                         <p><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="0.63em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 320 512"><path fill="currentColor" d="M311.9 260.8L160 353.6L8 260.8L160 0l151.9 260.8zM160 383.4L8 290.6L160 512l152-221.4l-152 92.8z"/></svg> ${this.price}</p>
                     </div>
                     <div class="comprar">
-                        <button>COMPRAR</button>
+                        <button type="button" onclick="location.href='${this.enlace}'">COMPRAR</button>
                     </div>
                     </div>
             </div>
@@ -174,7 +176,8 @@ export class cardNFTmini extends LitElement{
         name: {type: String},
         autor: {type: String},
         price: {type: String},
-        img: {}
+        img: {},
+        enlace: {type: String}
     }
 
     static styles = css`
@@ -313,7 +316,8 @@ export class cardNFTmini extends LitElement{
         this.name = "Nombre predeterminado";
         this.autor = "Autor Anonimo";
         this.price = "0.00";
-        this.img = ""
+        this.img = "";
+        this.enlace = "vender"
     }
 
     render(){
@@ -327,7 +331,7 @@ export class cardNFTmini extends LitElement{
                         <p><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="0.63em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 320 512"><path fill="currentColor" d="M311.9 260.8L160 353.6L8 260.8L160 0l151.9 260.8zM160 383.4L8 290.6L160 512l152-221.4l-152 92.8z"/></svg> ${this.price}</p>
                     </div>
                     <div class="comprar">
-                        <button>COMPRAR</button>
+                    <button type="button" onclick="location.href='${this.enlace}'">COMPRAR</button>
                     </div>
                     </div>
             </div>
