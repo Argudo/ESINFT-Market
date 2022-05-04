@@ -511,4 +511,4 @@ export class cardNFTventa extends LitElement{
     }
 }
 
-customElements.define('nft-card-mini', cardNFTmini);
+customElements.define('nft-card-venta', cardNFTventa);
