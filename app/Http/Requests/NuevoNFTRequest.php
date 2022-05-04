@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NuevoUsersRequest extends FormRequest
+class NuevoNFTRequest extends FormRequest
 {
     public function authorize(){
         return true;
@@ -11,7 +11,7 @@ class NuevoUsersRequest extends FormRequest
 
     public function rules(){
         return [
-            "idMeta" => "required|max:500",
+            "nombre" => "required",
         
         ];
     }

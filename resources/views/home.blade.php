@@ -9,7 +9,7 @@
     <div id="presentacion">
         <div>
             <h1><b>ESI NFT Marketplace</b></h1>
-            <h4 style="color: gray;">Un lema genérico que no te dice absolutamente nada</h4>
+            <h4 style="color: gray;">Desde NFTs de Antonio Sala hasta NFTs de Josefi</h4>
         </div>
         <img src="img/banner.jpg" alt="">
     </div>

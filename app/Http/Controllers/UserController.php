@@ -6,31 +6,32 @@
     use DB;
 
     use Illuminate\Http\Request;
-    use App\Http\Requests\NuevoUsersRequest;
+    use App\Http\Requests\NuevoNFTRequest;
 
     class UserController extends Controller
     {
-        static public $id;
         public function login()
         {
             return view("welcome");
         }
 
         public function home(){
-            return view("home",['id' =>  UserController::$id]);
+            return view("home",['id' =>$_COOKIE["id"]]);
         }
 
         public function añadirUser(){
 
             $_SESSION['account'] = $_POST['account'];
-            UserController::$id =  $_SESSION['account'];
-            if (Users::where('idMeta', '=', $_SESSION['account'])->count() == 0) {
+            setcookie("id", $_POST['account']);
+
+    
+            if (Users::where('id', '=', $_SESSION['account'])->count() == 0) {
                 $user = new Users;
-                $user->idMeta = $_SESSION['account'];
+                $user->id = $_SESSION['account'];
                 $user->save();
              }
           
-             return view("home",['id' =>  UserController::$id]);
+             return view("home",['id' => $_COOKIE["id"]]);
         }
 
         public function perfil(){
@@ -42,14 +43,16 @@
         }
 
         public function myNFTs(){
-            return view("NFT");
+            $nfts = nft::where('idMeta', '=', $_COOKIE["id"])->paginate(2);
+        
+            return view("myNfts")->with(["nfts" => $nfts]);
         }
 
-        public function saveNFT(Request $request){
+        public function saveNFT(NuevoNFTRequest $request){
             $nft = new nft();
             $nft->nombre = $request->nombre;
-            //$nft->idMeta = $id;
-            $nft->idMeta = "0xb8b572e5c7f7df8fe083d8644908e174fc113d77";
+            //$nft->id = $id;
+            $nft->idMeta = $_COOKIE["id"];
             // script para subir la imagen
             if($request->hasFile("imagen")){
     
@@ -65,16 +68,17 @@
             }
             $nft->save();
 
-            return view("home",['id' =>  UserController::$id]);
+            return view("home",['id' =>  $_COOKIE["id"]]);
             
         }
 
         public function actualizar(Request $request){
-            $user = Users::findOrFail(UserController::$id);
+            $user = Users::findOrFail($_COOKIE["id"]);
             if ($request->input('email') != NULL ) $user->email = $request->input('email');
             if ($request->input('nombre') != NULL ) $user->nombre = $request->input('nombre');
+            $user->saldo += $request->input('saldo');
             $user->save();
-            return redirect()->route("home");
+            return view("home",['id' =>  $_COOKIE["id"]]);
         }
 
         public function mercado(){

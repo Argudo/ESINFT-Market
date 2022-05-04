@@ -30,6 +30,10 @@
                  <label for="nombre">Nombre</label>
                  <input type="text" class="form-control" name="nombre" maxlength="30">
              </div>
+             <div class="form-group">
+                 <label for="nombre">Añadir saldo</label>
+                 <input type="text" class="form-control" name="saldo" maxlength="8">
+             </div>
 <div class="form-group">
     <input type="submit" class="btn btn-primary" value="Guardar">
     <input type="reset" class="btn btn-default" value="Cancelar">
