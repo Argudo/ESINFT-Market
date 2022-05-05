@@ -18,7 +18,8 @@
 
     <div class="row">
     <div class="col-xl-12">
-         <form action="buscar" method="get">
+         <form action="/buscar" method="post">
+         @csrf
              <div class="form-row">
                   <div class="col-sm-4 my-1">
                        <input type="text" class="form-contro1" name="name">
@@ -30,11 +31,10 @@
          </form>
     </div>
     <div class="col-xl-12"> ..
-    @foreach($nfts as $nft1)
+    @foreach($nfts as $nft)
     <?php     
-            $nft = UserController::datosNFT($nft1);
                 $imagen = "img/NFTs/$nft->imagen";
-                echo "<nft-card-mini autor='$nft->id_nft' name='$nft->nombre' img=$imagen ></nft-card-mini>";
+                echo "<nft-card-mini autor='$nft->id' name='$nft->nombre' img=$imagen price = '$nft->valor' ></nft-card-mini>";
     ?>
    
     @endforeach

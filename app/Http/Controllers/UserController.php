@@ -83,10 +83,15 @@
         }
         //preguntar a kevin como sacar los datos de aqui
         public function mercado(){
-            $mercado=mercado::orderBy('id','desc')->paginate(2);
+            $mercado=DB::select('SELECT nfts.nombre, nfts.id, nfts.imagen, mercado.valor FROM nfts,mercado where exists
+
+            (select * from mercado
+         
+              where nfts.id = mercado.id_nft )');
         
             return view("mercado")->with(["nfts" => $mercado]);
         }
+
 
         public function vender($id){
             $nft = nft::where('id', '=', $id)->paginate(2); //preguntar a kevin lo que hace paginate
@@ -106,9 +111,13 @@
         }
 
         public function buscar(Request $request){
-            $nfts = mercado::where('nombre', 'LIKE', $request->nombre)->paginate(2);
+            $mercado=DB::select("SELECT * FROM nfts, mercado where exists
 
-            return view('mercado', compact('nfts'));
+            (select * from mercado
+         
+              where nfts.id = mercado.id_nft and nfts.nombre like '"."$request->nombre"."')");
+        
+            return view("mercado")->with(["nfts" => $mercado]);
         }
 
         static public function datosNFT($request){
