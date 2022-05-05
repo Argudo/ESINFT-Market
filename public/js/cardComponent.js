@@ -12,7 +12,7 @@ export class cardNFT extends LitElement{
     static styles = css`
         .carta{
             position:relative;
-            width: 300px;
+            width: 250px;
             height: fit-content;
             color: black;
             background-color: white;
@@ -24,7 +24,7 @@ export class cardNFT extends LitElement{
         }
 
         .price {
-            width: 300px;
+            width: 250px;
             font-size: 1rem;
             position: absolute;
             bottom: -18;
@@ -49,7 +49,7 @@ export class cardNFT extends LitElement{
         img{
             z-index: 1;
             width: calc(100% - 20px);
-            height: 250px;
+            height: 200px;
             padding: 10px;
             padding-bottom: 0px;
             border-radius: 5px;
@@ -59,11 +59,11 @@ export class cardNFT extends LitElement{
             -ms-transition:all 1s ease;
         }
 
-        h4{
+        h5{
             text-transform: uppercase;
         }
 
-        h4, h5{
+        h5, h6{
             margin-right: 20px;
         }
 
@@ -95,7 +95,7 @@ export class cardNFT extends LitElement{
         .comprar {
             opacity: 0; /* Hide button */
             position: absolute;
-            width: 300px;
+            width: 250px;
             top: 30%;
             text-align: center;
         }
@@ -154,8 +154,8 @@ export class cardNFT extends LitElement{
             <div style=" height: fit-content; width:fit-content; margin:10px; margin-bottom: 20px;">
                 <div class="carta">
                     <img class="imagen" src=${this.img}></img>
-                    <h4>${this.name}</h4>
-                    <h5><a href="#">${this.autor}</a></h5>
+                    <h5>${this.name}</h5>
+                    <h6><a href="#">${this.autor}</a></h6>
                     <div class="price">
                         <p><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="0.63em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 320 512"><path fill="currentColor" d="M311.9 260.8L160 353.6L8 260.8L160 0l151.9 260.8zM160 383.4L8 290.6L160 512l152-221.4l-152 92.8z"/></svg> ${this.price}</p>
                     </div>

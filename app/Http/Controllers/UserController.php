@@ -44,7 +44,7 @@
         }
 
         public function myNFTs(){
-            $nfts = nft::where('idMeta', '=', $_COOKIE["id"])->paginate(2);
+            $nfts = nft::where('idMeta', '=', $_COOKIE["id"])->paginate(8);
         
             return view("myNfts")->with(["nfts" => $nfts]);
         }
