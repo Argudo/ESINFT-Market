@@ -12,10 +12,11 @@
             @foreach($nfts as $nft)
                 <?php 
                     $imagen = "img/NFTs/$nft->imagen";
-                    echo "<nft-card autor='Yo' name='$nft->nombre' img=$imagen enlace='vender'></nft-card>";
+                    echo "<nft-card autor='Yo' name='$nft->nombre' img=$imagen enlace='vender/{$nft->id}'></nft-card>";
                 ?>
             @endforeach
         </div>
     </section>
     <div style="height: 20px;"></div>
 </div>
+
