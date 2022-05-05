@@ -36,5 +36,6 @@ Route::post('/guardarNFT',[UserController::class, 'saveNFT']);
 Route::get('/misNFTs',[UserController::class, 'myNFTs']);
 
 Route::get('/mercado',[UserController::class, 'mercado']);
+Route::post('/venta',[UserController::class, 'venta']);
 
-Route::post('/vender/{nft}',[UserController::class, 'vender']); // preguntar a kevin peta el vender y es por la cara
+Route::get('/vender/{nft}',[UserController::class, 'vender']); // preguntar a kevin peta el vender y es por la cara

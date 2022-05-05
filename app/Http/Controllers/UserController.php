@@ -95,9 +95,14 @@
 
         public function venta(Request $request){
             $mercado= new mercado;
-            $mercado->id_nft = request->id_nft;
+            $mercado->id_nft = $request->id;
+            $mercado->valor = $request->precio;
+            $mercado->fecha_public = now();
+            $mercado->save();
+
+            return view("home",['id' =>  $_COOKIE["id"]]);
         
-            return view("mercado")->with(["nfts" => $mercado]);
+            //return view("mercado")->with(["nfts" => $mercado]);
         }
 
         public function buscar(Request $request){
