@@ -166,9 +166,10 @@
 
         public function transacciones(){
             $id = $_COOKIE["id"];
+            $id = "'".$_COOKIE['id']."'";
             $trans = DB::select("SELECT *
             FROM transacciones
-            where  id_vendedor = $id  or id_comprador = $id ");
+            where  id_vendedor = $id  or id_comprador =  $id ");
         
             return view("transaccion")->with(["nfts" => $trans]);
         }
