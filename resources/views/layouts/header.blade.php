@@ -23,16 +23,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul id="barra" style="gap: 1em;" class="navbar-nav ms-auto mb-2 mb-lg-0 nav nav-pills nav-justified">
                             <li class="nav-item">
-                                <a class="nav-link active" style="color: white;" aria-current="page" href="home">Inicio</a>
+                                <a class="nav-link active" style="color: white;" aria-current="page" href="/home">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/mercado">Mercado</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="NFT">Crear&nbspNFT</a>
+                                <a class="nav-link" href="/NFT">Crear&nbspNFT</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="misNFTs">Mis&nbspNFTs</a>
+                                <a class="nav-link" href="/misNFTs">Mis&nbspNFTs</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/perfil">Perfil</a>

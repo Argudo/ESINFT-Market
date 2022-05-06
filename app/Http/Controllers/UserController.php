@@ -8,6 +8,7 @@
 
     use Illuminate\Http\Request;
     use App\Http\Requests\NuevoNFTRequest;
+    use Illuminate\Support\Facades\Crypt;
 
     class UserController extends Controller
     {
@@ -83,17 +84,14 @@
         }
         //preguntar a kevin como sacar los datos de aqui
         public function mercado(){
-            $mercado=DB::select('SELECT nfts.nombre, nfts.id, nfts.imagen, mercado.valor FROM nfts,mercado where exists
-
-            (select * from mercado
-         
-              where nfts.id = mercado.id_nft )');
+            $mercado=DB::select('SELECT nfts.nombre, nfts.id, nfts.imagen, mercado.valor FROM nfts,mercado where nfts.id = mercado.id_nft ');
         
             return view("mercado")->with(["nfts" => $mercado]);
         }
 
 
         public function vender($id){
+            $id =  Crypt::decrypt($id);
             $nft = nft::where('id', '=', $id)->paginate(2); //preguntar a kevin lo que hace paginate
             return view("vender")->with(["nfts" => $nft]);
         }
@@ -111,11 +109,10 @@
         }
 
         public function buscar(Request $request){
-            $mercado=DB::select("SELECT * FROM nfts, mercado where exists
 
-            (select * from mercado
-         
-              where nfts.id = mercado.id_nft and nfts.nombre like '"."$request->nombre"."')");
+            $mercado=DB::select("SELECT nfts.nombre, nfts.id, nfts.imagen, mercado.valor 
+            FROM nfts,mercado 
+            where nfts.id = mercado.id_nft  and  nfts.nombre like '"."$request->name"."' ");
         
             return view("mercado")->with(["nfts" => $mercado]);
         }
@@ -124,6 +121,33 @@
             $nft = nft::where('id', '=', $nfts->id_nft);
 
             return $nft;
+        }
+
+        public function comprar($id){
+            $id =  Crypt::decrypt($id);
+            $nft = nft::where('id', '=', $id)->paginate(2); 
+            return view("comprar")->with(["nfts" => $nft]);
+        }
+
+        public function compra(Request $request){
+            $user = Users::findOrFail($_COOKIE["id"]);
+
+            if( $user->saldo >= $request->precio){
+                $user->saldo -= $request->precio;
+                $mercado= mercado::where('id_nft', '=', $request->id);
+                $mercado->delete();
+
+                $nft = nft::findOrFail($request->id);
+                $userVendedor = Users::findOrFail( $nft->idMeta);
+                $user->saldo += $request->precio;
+
+                $nft->idMeta =  $_COOKIE["id"];
+                $nft->save();
+                return view("home",['id' =>  $_COOKIE["id"]]);
+            }else{
+                return view("home",['id' =>  $_COOKIE["id"]]); // aqui hay que poner una vista que te diga oye error no pues comprarlo
+            }
+            //return view("mercado")->with(["nfts" => $mercado]);
         }
     }
 

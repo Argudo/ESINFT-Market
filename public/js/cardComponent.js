@@ -317,7 +317,7 @@ export class cardNFTmini extends LitElement{
         this.autor = "Autor Anonimo";
         this.price = "0.00";
         this.img = "";
-        this.enlace = "vender"
+        this.enlace = ""
     }
 
     render(){

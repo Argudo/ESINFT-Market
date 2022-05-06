@@ -12,7 +12,8 @@
             @foreach($nfts as $nft)
                 <?php 
                     $imagen = "img/NFTs/$nft->imagen";
-                    echo "<nft-card autor='Yo' name='$nft->nombre' img=$imagen enlace='vender/{$nft->id}'></nft-card>";
+                    $id = Crypt::encrypt($nft->id);
+                    echo "<nft-card autor='Yo' name='$nft->nombre' img=$imagen enlace='vender/{$id}'></nft-card>";
                 ?>
             @endforeach
         </div>
