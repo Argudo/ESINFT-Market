@@ -8,7 +8,7 @@
 <div style="margin: 80px 0px; width: 100%; height:100%; max-width:1000px;">
     <section id="user-section" style="width:80%; margin: 150px auto;">
         <?php 
-            echo "<h2>Bienvenido anon</h2>";
+            echo "<h2>Bienvenido $nombre</h2>";
             echo "<hr>";
         ?>
         <div class="row">

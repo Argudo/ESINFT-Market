@@ -8,8 +8,9 @@
 <div style="margin: 80px 0px; width: 100%; height:100%; max-width:1000px;">
     <section id="user-section" style="padding: 50px;">
             <?php
-                echo "<h2>Bienvenido anon</h2>";
-                echo "";
+                echo "<h2>Bienvenido $nombre</h2>";
+                echo "<br>";
+                echo "<h2>Tu saldo es de $saldo</h2>";
             ?>
         <div class="row">
             <div class="col-xl-12">

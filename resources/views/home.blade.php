@@ -14,11 +14,15 @@
         <img src="img/banner.jpg" alt="">
     </div>
     <section id="user-section">
+    <?php 
+                
+                echo "Bienvenido de nuevo $nombre";
+                echo "<br>";
+                echo "Tu saldo: $saldo";
+                ?>
         <div class="user-card">
             <h4><b>Hazte con el mejor arte digital en nuestro mercado</b></h4>
-            <?php 
-                echo $id;
-                ?>
+            
             <button class="btn btn-light">Entrar</button>
         </div>
     </section>

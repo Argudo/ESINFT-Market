@@ -43,3 +43,5 @@ Route::get('/buscar',[UserController::class, 'buscar']);
 Route::get('/vender/{nft}',[UserController::class, 'vender']); // preguntar a kevin peta el vender y es por la cara
 Route::get('/comprar/{id}',[UserController::class, 'comprar']);
 Route::post('/compra',[UserController::class, 'compra']);
+
+Route::get('/transacciones',[UserController::class, 'transacciones']);
