@@ -61,7 +61,8 @@
         }
 
         public function NFT(){
-            return view("NFT",['nombre' => $_COOKIE["nombre"], 'saldo' => $_COOKIE["saldo"]]);
+            UserController::actualizarCookies();
+            return view("NFT",["nombre" => $_COOKIE["nombre"], 'saldo' => $_COOKIE["saldo"]]);
         }
 
         public function myNFTs(){
