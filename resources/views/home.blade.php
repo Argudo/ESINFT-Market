@@ -18,7 +18,7 @@
                 
                 echo "Bienvenido de nuevo $nombre";
                 echo "<br>";
-                echo "Tu saldo: $saldo";
+                echo "Tu saldo: $saldo" ;
                 ?>
         <div class="user-card">
             <h4><b>Hazte con el mejor arte digital en nuestro mercado</b></h4>
