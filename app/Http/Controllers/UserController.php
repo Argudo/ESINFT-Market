@@ -34,7 +34,7 @@
                 $user->save();
              }
             
-             $user = Users::findOrFail($_COOKIE["id"]);
+             $user = Users::findOrFail( $_SESSION['account']);
                
              
              setcookie("saldo", $user->saldo);
