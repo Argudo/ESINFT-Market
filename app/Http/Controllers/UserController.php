@@ -42,8 +42,9 @@
                 setcookie("nombre", $user->nombre);
              }
             
-           
-             return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
+            $populares = UserController::masPopulares();
+
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares]);
         }
 
         public function perfil(){
@@ -182,6 +183,12 @@
         
             return view("transaccion")->with(["nfts" => $trans]);
         }
-    }
 
+        static public function masPopulares(){
+            $populares = DB::select("SELECT *
+            FROM nfts,mercado
+            where  nfts.id = mercado.id_nft ORDER BY mercado.valor DESC");
+            return $populares;
+        }
+    }
 

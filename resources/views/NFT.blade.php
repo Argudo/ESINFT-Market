@@ -4,6 +4,26 @@
     <link href="{{ asset('css/slider.css') }}" rel="stylesheet">
 @endpush
 
+@section('opciones')
+    <li class="nav-item">
+        <a class="nav-link" href="/home">Inicio</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/mercado">Mercado</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" style="color: white;" aria-current="page" href="/NFT">Crear&nbspNFT</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/misNFTs">Mis&nbspNFTs</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/transacciones">Mis&nbsptransacciones</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/perfil">Perfil</a>
+@endsection
+
 @section('contenido')
 <div style="margin: 80px 0px; width: 100%; height:100%; max-width:1000px;">
     <section id="user-section" style="width:80%; margin: 150px auto;">
