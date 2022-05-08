@@ -31,14 +31,18 @@
             if (Users::where('id', '=', $_SESSION['account'])->count() == 0) {
                 $user = new Users;
                 $user->id = $_SESSION['account'];
+                setcookie("saldo", "0");
+                setcookie("nombre", "Anonimo");
                 $user->save();
-             }
-            
-             $user = Users::findOrFail( $_SESSION['account']);
+             }else{
+                $user = Users::findOrFail( $_SESSION['account']);
                
              
-             setcookie("saldo", $user->saldo);
-             setcookie("nombre", $user->nombre);
+                setcookie("saldo", $user->saldo);
+                setcookie("nombre", $user->nombre);
+             }
+            
+           
              return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
 
