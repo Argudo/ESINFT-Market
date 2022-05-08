@@ -5,44 +5,36 @@
 @endpush
 
 @section('contenido')
-<div style="margin: 100px 0px; width: 100%; height:90%">
-    <div id="presentacion">
-        <div>
-            <h1><b>ESI NFT Marketplace</b></h1>
-            <h4 style="color: gray;">Un lema genérico que no te dice absolutamente nada</h4>
-        </div>
-        <img src="public/img/banner.jpg" alt="">
-    </div>
-    <section id="user-section">
-    <h2><b>Venta NFT</b></h2>
-    @foreach($nfts as $nft)
-    <?php
-        $imagen = "public/img/NFTs/$nft->imagen";
-        echo '<nft-card-mini autor="Yo" name="'.$nft->nombre.'" img="'.$imagen.'" enlace="'.$nft->id.'" price="'.$nft->valor.'"></nft-card-mini>';
-        echo $nft->valor;
-    ?>
-    
-    <div class="row">
-            <div class="col-xl-12">
-                <form action="/compra" method="post">
-                    @csrf
-                        <div class="form-group">
-                            <?php 
-                                echo "<input type='hidden' name='id' value = $nft->id>";
-                                echo "<input type='hidden' name='precio' value = $nft->valor>";
-                                echo "¿Seguro que quieres comprar este NFT";
-                            ?>
-                            
+<div style="margin: 100px 0px; width: 100%; height:100%;">
+    <section id="user-section" style="width:80%; margin: 100px auto;">
+        <h2><b>Seccion compra</b></h2><hr style="margin-bottom: 40px;">
+        @foreach($nfts as $nft)
+        <?php
+            $imagen = "/img/NFTs/$nft->imagen";
+            echo '<nft-card-mini autor="Yo" name="'.$nft->nombre.'" img="'.$imagen.'" enlace="'.$nft->id.'" price="'.$nft->valor.'"></nft-card-mini>';
+            echo $nft->valor;
+        ?>
+        
+        <div class="row">
+                <div class="col-xl-12">
+                    <form action="/compra" method="post">
+                        @csrf
+                            <div class="form-group">
+                                <?php 
+                                    echo "<input type='hidden' name='id' value = $nft->id>";
+                                    echo "<input type='hidden' name='precio' value = $nft->valor>";
+                                    echo "¿Seguro que quieres comprar este NFT?";
+                                ?>
+                                
+                            </div>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <input type="submit" class="btn btn-primary" value="Comprar">
+                            <input type="button" class="btn btn-default" onclick="location.href='/mercado'" value="Cancelar">
                         </div>
-                    <div class="form-group" style="margin-top: 20px;">
-                        <input type="submit" class="btn btn-primary" value="Comprar">
-                        <input type="reset" class="btn btn-default" value="Cancelar">
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-    @endforeach
-  
+        @endforeach
     </section>
    
     <div style="height: 20px;"></div>
