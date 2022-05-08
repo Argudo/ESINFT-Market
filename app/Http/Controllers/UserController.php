@@ -19,7 +19,9 @@
         }
 
         public function home(){
-            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
+            $populares = UserController::masPopulares();
+
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "0"]);
         }
 
         public function añadirUser(){
@@ -44,7 +46,7 @@
             
             $populares = UserController::masPopulares();
 
-            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares]);
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "0"]);
         }
 
         public function perfil(){
@@ -81,7 +83,9 @@
             }
             $nft->save();
 
-            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
+            $populares = UserController::masPopulares();
+
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "1"]);
             
         }
 
@@ -91,7 +95,9 @@
             if ($request->input('nombre') != NULL ) $user->nombre = $request->input('nombre');
             $user->saldo += $request->input('saldo');
             $user->save();
-            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
+            $populares = UserController::masPopulares();
+
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "2"]);
         }
         //preguntar a kevin como sacar los datos de aqui
         public function mercado(){
@@ -114,7 +120,9 @@
             $mercado->fecha_public = now();
             $mercado->save();
 
-            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
+            $populares = UserController::masPopulares();
+
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "3"]);
         
             //return view("mercado")->with(["nfts" => $mercado]);
         }
@@ -146,15 +154,19 @@
 
         public function compra(Request $request){
             $user = Users::findOrFail($_COOKIE["id"]);
+            $nft = nft::findOrFail($request->id);
+               
+            $userVendedor = Users::findOrFail( $nft->idMeta);
 
-            if( $user->saldo >= $request->precio){
+            if( $user->saldo >= $request->precio && $userVendedor->id != $user->id ){
                 $user->saldo -= $request->precio;
+               
                 $mercado= mercado::where('id_nft', '=', $request->id);
                 $mercado->delete();
 
-                $nft = nft::findOrFail($request->id);
-                $userVendedor = Users::findOrFail( $nft->idMeta);
-                $user->saldo += $request->precio;
+              
+                $userVendedor->saldo += $request->precio;
+                $userVendedor->save();
 
                 $transaccion = new transaccion;
                 $transaccion->id_vendedor =  $nft->idMeta;
@@ -162,16 +174,29 @@
                 $transaccion->id_nft = $request->id;
                 $transaccion->fecha_compra = now();
                 $transaccion->precio = $request->precio;
-                $transaccion->save();
+               
 
 
                 $nft->idMeta =  $_COOKIE["id"];
-                $nft->save();
-                return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
-            }else{
-                return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]); // aqui hay que poner una vista que te diga oye error no pues comprarlo
-            }
-            //return view("mercado")->with(["nfts" => $mercado]);
+               
+                $nft->save(); 
+                $user->save();
+                $transaccion->save();
+
+                $populares = UserController::masPopulares();
+
+                return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "4"]);
+
+            }else if($userVendedor->id != $user->id){
+                 $populares = UserController::masPopulares();
+
+                 return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "5"]);
+            }else {
+                $populares = UserController::masPopulares();
+
+                return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "6"]);
+           }
+         
         }
 
         public function transacciones(){

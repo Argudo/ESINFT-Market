@@ -48,7 +48,7 @@
                         </div>
                     <div class="form-group" style="margin-top: 20px;">
                         <input type="submit" class="btn btn-primary" value="Vender">
-                        <input type="reset" class="btn btn-default" value="Cancelar">
+                        <input type="button" class="btn btn-default" onclick="location.href='/misNFTs'" value="Cancelar">
                     </div>
                 </form>
             </div>

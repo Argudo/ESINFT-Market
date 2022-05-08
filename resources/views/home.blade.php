@@ -65,4 +65,25 @@
         </div>
     </div>
     <div style="height: 20px;"></div>
+
+    <?php
+            switch($x){
+                case '0': 
+                        break;
+                case '1': echo '<script>alert("NFT creado con éxito")</script>';
+                        break;
+                case '2': echo '<script>alert("Datos actualizados con éxito")</script>';
+                        break;
+                case '3': echo '<script>alert("NFT puesto en el mercado con éxito")</script>';
+                        break;
+                case '4': echo '<script>alert("Compra realizada con éxito")</script>';
+                        break;
+                case '5': echo '<script>alert("Error: Usted es el propietario de este NFT")</script>';
+                        break;
+                case '6': echo '<script>alert("Error: Saldo insuficiente")</script>';
+                        break;
+                default: break;
+            }
+
+            ?>
 </div>
