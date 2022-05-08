@@ -35,7 +35,7 @@
                                 <a class="nav-link" href="/misNFTs">Mis&nbspNFTs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/transacciones">Mis transacciones</a>
+                                <a class="nav-link" href="/transacciones">Mis&nbsptransacciones</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/perfil">Perfil</a>

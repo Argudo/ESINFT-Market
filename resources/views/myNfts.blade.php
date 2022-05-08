@@ -6,9 +6,9 @@
 
 @section('contenido')
 <div style="margin: 100px 0px; width: 100%; height:100%;">
-    <section id="user-section" style="width:80%; margin: 150px auto;">
+    <section id="user-section" style="width:80%; margin: 100px auto;">
         <h2><b>Mi baúl de NFTs</b></h2>
-        <div style="box-sizing:border-box; display:flex; justify-content:space-around; height:100%; flex-wrap: wrap">
+        <div style="box-sizing:border-box; display:flex; justify-content: space-around; height:100%; flex-wrap: wrap; margin-top:40px">
             @foreach($nfts as $nft)
                 <?php 
                     $imagen = "img/NFTs/$nft->imagen";
