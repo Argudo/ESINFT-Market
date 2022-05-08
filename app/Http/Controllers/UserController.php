@@ -19,7 +19,7 @@
         }
 
         public function home(){
-            return view("home",['nombre' => $_COOKIE['nombre'], 'saldo' => $_COOKIE['saldo']]);
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
 
         public function añadirUser(){
@@ -39,15 +39,15 @@
              
              setcookie("saldo", $user->saldo);
              setcookie("nombre", $user->nombre);
-             return view("home",['nombre' => $_COOKIE['nombre'], 'saldo' => $_COOKIE['saldo']]);
+             return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
 
         public function perfil(){
-            return view("perfil",['nombre' => $_COOKIE['nombre'], 'saldo' => $_COOKIE['saldo']]);
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
 
         public function NFT(){
-            return view("NFT",['nombre' => $_COOKIE['nombre'], 'saldo' => $_COOKIE['saldo']]);
+            return view("NFT",['nombre' => $_COOKIE["nombre"], 'saldo' => $_COOKIE["saldo"]]);
         }
 
         public function myNFTs(){
@@ -76,7 +76,7 @@
             }
             $nft->save();
 
-            return view("home",['nombre' => $_COOKIE['nombre'], 'saldo' => $_COOKIE['saldo']]);
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
             
         }
 
@@ -86,7 +86,7 @@
             if ($request->input('nombre') != NULL ) $user->nombre = $request->input('nombre');
             $user->saldo += $request->input('saldo');
             $user->save();
-            return view("home",['nombre' => $_COOKIE['nombre'], 'saldo' => $_COOKIE['saldo']]);
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
         //preguntar a kevin como sacar los datos de aqui
         public function mercado(){
@@ -109,7 +109,7 @@
             $mercado->fecha_public = now();
             $mercado->save();
 
-            return view("home",['nombre' => $_COOKIE['nombre'], 'saldo' => $_COOKIE['saldo']]);
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         
             //return view("mercado")->with(["nfts" => $mercado]);
         }
@@ -158,9 +158,9 @@
 
                 $nft->idMeta =  $_COOKIE["id"];
                 $nft->save();
-                return view("home",['nombre' => $_COOKIE['nombre'], 'saldo' => $_COOKIE['saldo']]);
+                return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
             }else{
-                return view("home",['nombre' => $_COOKIE['nombre'], 'saldo' => $_COOKIE['saldo']]); // aqui hay que poner una vista que te diga oye error no pues comprarlo
+                return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]); // aqui hay que poner una vista que te diga oye error no pues comprarlo
             }
             //return view("mercado")->with(["nfts" => $mercado]);
         }
