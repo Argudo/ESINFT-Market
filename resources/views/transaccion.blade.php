@@ -26,15 +26,24 @@
 
 @section('contenido')
 <div style="margin: 100px 0px; width: 100%; height:100%;">
-    <section id="user-section" style="width:80%; margin: 150px auto;">
-        <h2><b>Mis Transacciones</b></h2>
-        <div style="box-sizing:border-box; display:flex; justify-content:space-around; height:100%; flex-wrap: wrap">
+    <section id="user-section" style="width:80%; margin: 100px auto;">
+        <h2><b>Mis Transacciones</b></h2><hr>
+        <div style="display: flex; justify-content: center">
+            <table>
+                <thead>
+                    <th>Fecha de la transaccion</th>
+                    <th>NFT</th>
+                    <th>Precio</th>
+                    <th>Operación</th>
+                </thead>
             @foreach($nfts as $nft)
-                <?php 
-                    echo "Identificador de transaccion= $nft->id  Cartera del vendedor = $nft->id_vendedor Cartera del comprador = $nft->id_comprador Identificador de Nft=$nft->id_nft Precio= $nft->precio Fecha de la transaccion =  $nft->fecha_compra ";
-                    echo "<br>";
+                <?php
+                    echo '<tr>';
+                    echo "<td>$nft->fecha_compra<td>$nft->id_nft<td>$nft->precio<td>$nft->id_vendedor → $nft->id_comprador";
+                    echo '</tr>';
                 ?>
             @endforeach
+            </table>
         </div>
     </section>
     <div style="height: 20px;"></div>

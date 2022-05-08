@@ -109,6 +109,16 @@ body {
     margin-top: 25px;
 }
 
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+  }
+
 /*
 body{
     background: #4e54c8;  

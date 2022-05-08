@@ -186,8 +186,8 @@
 
         static public function masPopulares(){
             $populares = DB::select("SELECT *
-            FROM nfts,mercado
-            where  nfts.id = mercado.id_nft ORDER BY mercado.valor DESC");
+            FROM nfts, mercado, usuarios
+            where  nfts.id = mercado.id_nft and nfts.idMeta = usuarios.id ORDER BY mercado.valor DESC");
             return $populares;
         }
     }

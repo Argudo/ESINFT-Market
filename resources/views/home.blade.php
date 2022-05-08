@@ -21,7 +21,12 @@
         <a class="nav-link" href="/transacciones">Mis&nbsptransacciones</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/perfil">Perfil</a>
+        <a class="nav-link active" style="color: white; background-color:#4CBD49; display: inline-flex;" href="/perfil">
+            <?php 
+                echo "$nombre"."&nbsp-&nbsp"."$saldo".'&nbspEther';
+            ?>
+        </a>
+    </li>
 @endsection
 
 @section('contenido')
@@ -34,12 +39,6 @@
         <img src="img/banner.jpg" alt="">
     </div>
     <section id="user-section">
-    <?php 
-                
-                echo "Bienvenido de nuevo $nombre";
-                echo "<br>";
-                echo "Tu saldo: $saldo" ;
-                ?>
         <div class="user-card">
             <h4><b>Hazte con el mejor arte digital en nuestro mercado</b></h4>
             
@@ -56,7 +55,7 @@
                     $imagen = "/img/NFTs/$nft->imagen";
                     echo '
                         <div class="slide">
-                            <nft-card-mini autor="Yo" name="'.$nft->nombreNFT.'" img="'.$imagen.'" enlace="'.$nft->id.'" price="'.$nft->valor.'"></nft-card-mini>
+                            '."<nft-card-mini autor='$nft->nombre' name='$nft->nombreNFT' img=$imagen price = '$nft->valor' enlace='comprar/{$nft->id}' ></nft-card-mini>".'
                         </div>
                     ';
                 }
