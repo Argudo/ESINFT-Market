@@ -43,7 +43,7 @@
         }
 
         public function perfil(){
-            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
+            return view("perfil",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
 
         public function NFT(){
