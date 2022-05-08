@@ -13,7 +13,7 @@
                 <?php 
                     $imagen = "img/NFTs/$nft->imagen";
                     $id = Crypt::encrypt($nft->id);
-                    echo "<nft-card autor='Yo' name='$nft->nombre' img=$imagen enlace='vender/{$id}'></nft-card>";
+                    echo "<nft-card autor='Yo' name='$nft->nombreNFT' img=$imagen enlace='vender/{$id}'></nft-card>";
                 ?>
             @endforeach
         </div>
