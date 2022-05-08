@@ -32,12 +32,13 @@
                 $user = new Users;
                 $user->id = $_SESSION['account'];
                 $user->save();
-             }else{
-                $user = Users::findOrFail($_COOKIE["id"]);
-                setcookie("saldo", $user->saldo);
-                setcookie("nombre", $user->nombre);
              }
-          
+            
+             $user = Users::findOrFail($_COOKIE["id"]);
+               
+             
+             setcookie("saldo", $user->saldo);
+             setcookie("nombre", $user->nombre);
              return view("home",['nombre' => $_COOKIE['nombre'], 'saldo' => $_COOKIE['saldo']]);
         }
 
