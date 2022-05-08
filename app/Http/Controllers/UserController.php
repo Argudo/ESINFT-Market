@@ -20,7 +20,7 @@
 
         public function home(){
             $populares = UserController::masPopulares();
-
+            UserController::actualizarCookies();
             return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "0"]);
         }
 
@@ -33,23 +33,30 @@
             if (Users::where('id', '=', $_SESSION['account'])->count() == 0) {
                 $user = new Users;
                 $user->id = $_SESSION['account'];
+                $user->nombre = "Anonimo";
                 setcookie("saldo", "0");
                 setcookie("nombre", "Anonimo");
                 $user->save();
+                UserController::actualizarCookies();
+
+                return view("datos");
              }else{
                 $user = Users::findOrFail( $_SESSION['account']);
                
              
                 setcookie("saldo", $user->saldo);
                 setcookie("nombre", $user->nombre);
-             }
-            
-            $populares = UserController::masPopulares();
 
-            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "0"]);
+                $populares = UserController::masPopulares();
+
+                UserController::actualizarCookies();
+
+                return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "0"]);
+             }
         }
 
         public function perfil(){
+            UserController::actualizarCookies();
             return view("perfil",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
 
@@ -96,6 +103,8 @@
             $user->saldo += $request->input('saldo');
             $user->save();
             $populares = UserController::masPopulares();
+
+            UserController::actualizarCookies();
 
             return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "2"]);
         }
@@ -185,6 +194,8 @@
 
                 $populares = UserController::masPopulares();
 
+                UserController::actualizarCookies();
+
                 return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "4"]);
 
             }else if($userVendedor->id != $user->id){
@@ -214,6 +225,12 @@
             FROM nfts, mercado, usuarios
             where  nfts.id = mercado.id_nft and nfts.idMeta = usuarios.id ORDER BY mercado.valor DESC");
             return $populares;
+        }
+
+        static public function actualizarCookies(){
+            $user = Users::findOrFail($_COOKIE["id"]);
+            $_COOKIE["nombre"] = $user->nombre;
+            $_COOKIE["saldo"] = $user->saldo;
         }
     }
 

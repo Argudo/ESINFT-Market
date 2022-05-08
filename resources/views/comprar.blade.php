@@ -40,7 +40,6 @@
                         @csrf
                             <div class="form-group">
                                 <?php
-                                    echo "$nft->id";
                                     echo "<input type='hidden' name='id' value = $nft->id_nft>";
                                     echo "<input type='hidden' name='precio' value = $nft->valor>";
                                     echo "¿Seguro que quieres comprar este NFT?";

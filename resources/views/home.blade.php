@@ -42,7 +42,7 @@
         <div class="user-card">
             <h4><b>Hazte con el mejor arte digital en nuestro mercado</b></h4>
             
-            <button class="btn btn-light">Entrar</button>
+            <button class="btn btn-light" onclick="location.href='/mercado'">Entrar</button>
         </div>
     </section>
     <h4 style="background-color: white; width:fit-content; padding: 15px; margin-bottom:-14px; margin-left:230px; border-radius: 20px"><b>Más populares </b> <img style="width: 1em; margin-bottom: .25em" src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple@6.0.1/img/apple/64/1f525.png"></img></h4>
