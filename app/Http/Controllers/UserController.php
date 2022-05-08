@@ -135,7 +135,11 @@
 
         public function comprar($id){
             $id =  Crypt::decrypt($id);
-            $nft = nft::where('id', '=', $id)->paginate(2); 
+
+            $nft = DB::select("SELECT *
+            FROM nfts,mercado
+            where  nfts.id = $id  and mercado.id_nft =  $id ");
+        
             return view("comprar")->with(["nfts" => $nft]);
         }
 
