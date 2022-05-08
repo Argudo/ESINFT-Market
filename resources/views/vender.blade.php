@@ -5,21 +5,13 @@
 @endpush
 
 @section('contenido')
-<div style="margin: 100px 0px; width: 100%; height:90%">
-    <div id="presentacion">
-        <div>
-            <h1><b>ESI NFT Marketplace</b></h1>
-            <h4 style="color: gray;">Un lema genérico que no te dice absolutamente nada</h4>
-        </div>
-        <img src="img/banner.jpg" alt="">
-    </div>
-    <section id="user-section">
-    <h2><b>Venta NFT</b></h2>
+<div style="margin: 100px 0px; width: 100%; height:100%;">
+    <section id="user-section" style="width:80%; margin: 100px auto;">
+    <h2><b>Seccion venta</b></h2><hr style="margin-bottom: 40px;">
     @foreach($nfts as $nft)
     <?php 
-                
-                $imagen = "public/img/NFTs/$nft->imagen";
-                echo "<nft-card-mini autor='Yo' name='$nft->nombre' img=$imagen enlace='vender/$nft->id'></nft-card-mini>";
+        $imagen = "/img/NFTs/$nft->imagen";
+        echo '<nft-card-mini autor="Yo" name="'.$nft->nombreNFT.'" img="'.$imagen.'" enlace="'.$nft->id.'" price="'.$nft->valor.'"></nft-card-mini>';
     ?>
     
     <div class="row">
