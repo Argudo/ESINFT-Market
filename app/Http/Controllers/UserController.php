@@ -67,7 +67,7 @@
 
         public function myNFTs(){
             $nfts = nft::where('idMeta', '=', $_COOKIE["id"])->paginate(50);
-        
+            UserController::actualizarCookies();
             return view("myNfts")->with(["nfts" => $nfts, "nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
 
@@ -112,7 +112,7 @@
         //preguntar a kevin como sacar los datos de aqui
         public function mercado(){
             $mercado=DB::select('SELECT nfts.nombreNFT, nfts.id, nfts.imagen, mercado.valor, usuarios.nombre FROM nfts,mercado, usuarios where nfts.id = mercado.id_nft and nfts.idMeta = usuarios.id ');
-        
+            UserController::actualizarCookies();
             return view("mercado")->with(["nfts" => $mercado, "nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
 
@@ -125,14 +125,19 @@
 
         public function venta(Request $request){
             $mercado= new mercado;
+            if(mercado::where('id_nft', '=', $request->id)->count() == 0){
             $mercado->id_nft = $request->id;
             $mercado->valor = $request->precio;
             $mercado->fecha_public = now();
             $mercado->save();
 
             $populares = UserController::masPopulares();
-
             return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "3"]);
+            }else{}
+
+            $populares = UserController::masPopulares();
+
+            return view("home",["nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"], "populares" => $populares, "x" => "5"]);
         
             //return view("mercado")->with(["nfts" => $mercado]);
         }
@@ -143,7 +148,7 @@
             FROM nfts,mercado, usuarios
             where nfts.id = mercado.id_nft  and nfts.idMeta = usuarios.id  and nfts.nombreNFT like '"."$request->name"."'  ");
         
-            return view("mercado")->with(["nfts" => $mercado]);
+            return view("mercado")->with(["nfts" => $mercado, "nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
 
         static public function datosNFT($request){
@@ -212,7 +217,8 @@
             $trans = DB::select("SELECT *
             FROM transacciones
             where  id_vendedor = $id  or id_comprador =  $id ");
-        
+
+            UserController::actualizarCookies();
             return view("transaccion")->with(["nfts" => $trans, "nombre" => $_COOKIE["nombre"], "saldo" => $_COOKIE["saldo"]]);
         }
 

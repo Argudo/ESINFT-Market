@@ -78,7 +78,7 @@
                         break;
                 case '4': echo '<script>alert("Compra realizada con éxito")</script>';
                         break;
-                case '5': echo '<script>alert("Error: Usted es el propietario de este NFT")</script>';
+                case '5': echo '<script>alert("Error: NFT ya en venta")</script>';
                         break;
                 case '6': echo '<script>alert("Error: Saldo insuficiente")</script>';
                         break;
