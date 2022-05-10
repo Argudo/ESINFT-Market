@@ -21,7 +21,12 @@
         <a class="nav-link" href="/transacciones">Mis&nbsptransacciones</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/perfil">Perfil</a>
+        <a class="nav-link active" style="color: white; background-color:#4CBD49; display: inline-flex;" href="/perfil">
+            <?php 
+                echo "$nombre"."&nbsp-&nbsp"."$saldo".'&nbspEther';
+            ?>
+        </a>
+    </li>
 @endsection
 
 @section('contenido')
@@ -41,6 +46,7 @@
                             <div class="form-group">
                                 <?php
                                     echo "<input type='hidden' name='id' value = $nft->id_nft>";
+                                    echo "<input type='hidden' name='idMeta' value = $nft->idMeta>";
                                     echo "<input type='hidden' name='precio' value = $nft->valor>";
                                     echo "¿Seguro que quieres comprar este NFT?";
                                 ?>

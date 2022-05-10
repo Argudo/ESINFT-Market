@@ -21,7 +21,12 @@
         <a class="nav-link" href="/transacciones">Mis&nbsptransacciones</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" style="color: white;" aria-current="page" href="/perfil">Perfil</a>
+        <a class="nav-link active" style="color: white; background-color:#4CBD49; display: inline-flex;" href="/perfil">
+            <?php 
+                echo "$nombre"."&nbsp-&nbsp"."$saldo".'&nbspEther';
+            ?>
+        </a>
+    </li>
 @endsection
 
 @section('contenido')
